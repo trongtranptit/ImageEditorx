@@ -1,16 +1,26 @@
 package com.example.nghia.imageediter;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.nghia.CameraModul.CameraActivity;
+import com.example.nghia.cameramodul.CameraActivity;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+public class MainActivity extends AppCompatActivity  {
     ImageButton img_cam, img_galery ;
-
+    public static final int IMAGE_GALLERY_REQUEST = 20;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +40,17 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.imb_cam : {
-                    Intent t = new Intent(getBaseContext(),CameraActivity.class) ;
-                    startActivity(t);
+
+                    break;
                 }
                 case R.id.imb_galery : {
-
+                    Intent t = new Intent(MainActivity.this, PreGallery.class);
+                    startActivity(t);
+                    break;
                 }
             }
         }
     }
+
+
 }
